@@ -260,7 +260,7 @@ Five insights derived from the Profile Report below:
 
 print("""\nAdvice for directors to produce better movies:
 1. Have a + 120 Runtime (minutes) as people want to feel as though they got their money's worth.
-2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was the most common actor in all movies over the period.
+2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was one of the most common actor in all movies over the period.
 3. Make a high quality movie.  The public clearly appreciate this as they tend to concur with the movie critics in their Ratings.
 4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.""")
 
@@ -363,7 +363,7 @@ Five insights derived from the Profile Report below:
 
 Advice for directors to produce better movies:
 1. Have a + 120 Runtime (minutes) as people want to feel as though they got their money's worth.
-2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was the most common actor in all movies over the period.
+2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was one of the most common actor in all movies over the period.
 3. Make a high quality movie.  The public clearly appreciate this as they tend to concur with the movie critics in their Ratings.
 4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.
 """
