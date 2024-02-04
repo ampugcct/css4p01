@@ -31,9 +31,6 @@ Q13: Once you have completed the Quiz questions, create a GitHub repository and 
     the code used to load, analyse and clean the data, as well how you answered the Quiz questions. 
     Make reasonable assumptions.
 
-TO DO: 
-fix Q10 
-remove 0 days from  Runtime fld
 """
 
 import pandas as pd
@@ -46,7 +43,7 @@ column_headers = list(df.columns.values)
 print("\nHeaders original:\n", column_headers)
 
 #rename column names where necessary
-df.rename(columns = {"Runtime (Minutes)": "Runtime", "Revenue (Millions)": "Revenue_millions"}, inplace=True)
+df.rename(columns = {"Runtime (Minutes)": "Runtime_mins", "Revenue (Millions)": "Revenue_millions"}, inplace=True)
 
 #print renamed column names 
 column_headers = list(df.columns.values)
@@ -59,12 +56,11 @@ print("\n", df.info(), "\n")
 # change Year fld from int64 to datetime64[ns]
 df["Year"] = pd.to_datetime(df.Year, format = '%Y')
 
-# change Runtime_ fld from int64 to timedelta64[ns] 
-df["Runtime"] = pd.to_timedelta(df["Runtime"], unit='m')
-# alternative: df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S').dt.time
+# change Runtime_mins_ fld from int64 to timedelta64[ns] 
+df["Runtime_mins"] = pd.to_timedelta(df["Runtime_mins"], unit='m')
 
 # get data types on df 
-print("\nafter converting Year and Runtime fields to datetime:\n")
+print("\nafter converting Year and Runtime_mins fields to datetime:\n")
 print(df.info())
 
 # # _________________________________________________________________________________________
@@ -292,7 +288,7 @@ Headers original:
  ['Rank', 'Title', 'Genre', 'Description', 'Director', 'Actors', 'Year', 'Runtime (Minutes)', 'Rating', 'Votes', 'Revenue (Millions)', 'Metascore']
 
 Headers after rename:
- ['Rank', 'Title', 'Genre', 'Description', 'Director', 'Actors', 'Year', 'Runtime', 'Rating', 'Votes', 'Revenue_millions', 'Metascore']
+ ['Rank', 'Title', 'Genre', 'Description', 'Director', 'Actors', 'Year', 'Runtime_mins', 'Rating', 'Votes', 'Revenue_millions', 'Metascore']
 
 original data types:
 
@@ -308,7 +304,7 @@ Data columns (total 12 columns):
  4   Director          1000 non-null   object 
  5   Actors            1000 non-null   object 
  6   Year              1000 non-null   int64  
- 7   Runtime           1000 non-null   int64  
+ 7   Runtime_mins      1000 non-null   int64  
  8   Rating            1000 non-null   float64
  9   Votes             1000 non-null   int64  
  10  Revenue_millions  872 non-null    float64
@@ -319,7 +315,7 @@ memory usage: 93.9+ KB
  None 
 
 
-after converting Year and Runtime fields to datetime:
+after converting Year and Runtime_mins fields to datetime:
 
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 1000 entries, 0 to 999
@@ -333,7 +329,7 @@ Data columns (total 12 columns):
  4   Director          1000 non-null   object         
  5   Actors            1000 non-null   object         
  6   Year              1000 non-null   datetime64[ns] 
- 7   Runtime           1000 non-null   timedelta64[ns]
+ 7   Runtime_mins      1000 non-null   timedelta64[ns]
  8   Rating            1000 non-null   float64        
  9   Votes             1000 non-null   int64          
  10  Revenue_millions  872 non-null    float64        
@@ -370,6 +366,5 @@ Advice for directors to produce better movies:
 2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was the most common actor in all movies over the period.
 3. Make a high quality movie.  The public clearly appreciate this as they tend to concur with the movie critics in their Ratings.
 4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.
-
 """
 
