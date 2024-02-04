@@ -156,7 +156,7 @@ print(f"A6: number of movies with a rating of >={rating}: {num_rating}")
 # filter by director name
 dirnm = 'Christopher Nolan'
 df_dirnm = df[df["Director"]==dirnm]
-df_rating = df[df["Rating"]>=rating]
+df_rating = df_dirnm[df_dirnm["Rating"]>=rating]
 med_rating = df_rating["Rating"].median()
 print(f"A7: median rating of movies directed by {dirnm}: {med_rating}")
 
@@ -195,9 +195,8 @@ df_end_yr_perc = df[df["Year"] == endyr_perc]
 # calculate % difference between number of movies made in start year and in end year
 num_strt_yr_perc = len(df_strt_yr_perc.index)
 num_end_yr_perc = len(df_end_yr_perc.index)
-diff_yr_perc = ((num_end_yr_perc - num_strt_yr_perc)/100)
-
-print(f"A9: the percentage increase in number of movies made between {strtyr_perc} and {endyr_perc}: {diff_yr_perc}%")
+incr_yr_perc = ((num_end_yr_perc - num_strt_yr_perc)/num_strt_yr_perc)*100
+print(f"A9: the percentage increase in number of movies made between {strtyr_perc} and {endyr_perc}: {incr_yr_perc}%")
 
 # __________________________________________________________________________________________________
 # Q10: Find the most common actor in all the movies? ("Actors" column has multiple actors names - 
@@ -207,8 +206,8 @@ print(f"A9: the percentage increase in number of movies made between {strtyr_per
 s_act = df["Actors"].str.split(',').explode().value_counts()
 
 # determine most common actor in all the movies 
-most_com_actor = pd.Series(s_act.index).head(1)
-print(f"A10: the most common actor in all the movies was: {most_com_actor}")
+most_com_actor = pd.Series(s_act.index).head(2)
+print(f"A10: the most common actor(s) in all the movies was: \n{most_com_actor}")
 
 #_______________________________________________________________________________________________
 # Q11: How many unique genres are there in the dataset?  ("Genre" column has multiple genres per movie -
@@ -270,6 +269,8 @@ print("""\nAdvice for directors to produce better movies:
 4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.""")
 
 """
+CONSOLE OUTPUT:
+    
 runfile('D:/css2024/css_2024_project_imdb/css4p01.py', wdir='D:/css2024/css_2024_project_imdb')
 
       Rank                    Title  ... Revenue (Millions) Metascore
@@ -347,10 +348,12 @@ A3: average movie revenue (Millions) 2015/01/01 to 2017/01/01: US$ 63.1
 A4: number of movies released in 2016: 297
 A5: number of movies directed by Christopher Nolan: 5
 A6: number of movies with a rating of >=8.0: 78
-A7: median rating of movies directed by Christopher Nolan: 8.1
+A7: median rating of movies directed by Christopher Nolan: 8.6
 A8: the year with the highest average movie rating: 2016
-A9: the percentage increase in number of movies made between 2006 and 2016: 2.53%
-A10: the most common actor in all the movies was: 0    Christian Bale
+A9: the percentage increase in number of movies made between 2006 and 2016: 575.0%
+A10: the most common actor(s) in all the movies was: 
+0    Christian Bale
+1     Mark Wahlberg
 Name: Actors, dtype: object
 A11: the number of unique movie genres was: 20
 A12: please refer to the Profile Report that has opened in your browser.  
