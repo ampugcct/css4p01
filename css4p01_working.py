@@ -15,18 +15,23 @@ clean the data, make reasonable assumptions.
 Q1: What is the highest rated movie in the dataset? DONE
 Q2: What is the average revenue of all movies in the dataset? (answer effected by method to deal with missing values) DONE
 Q3: What is the average revenue of movies from 2015 to 2017 in the dataset? (answer effected by method to deal with missing values) DONE
-Q4: How many movies were released in the year 2016?
-Q5: How many movies were directed by Christopher Nolan?
-Q6: How many movies in the dataset have a rating of at least 8.0?
-Q7: What is the median rating of movies directed by Christopher Nolan?
-Q8: Find the year with the highest average rating?
-Q9: What is the percentage increase in number of movies made between 2006 and 2016?
+Q4: How many movies were released in the year 2016?  DONE
+Q5: How many movies were directed by Christopher Nolan?  DONE
+Q6: How many movies in the dataset have a rating of at least 8.0?  DONE
+Q7: What is the median rating of movies directed by Christopher Nolan?  DONE
+Q8: Find the year with the highest average rating?  DONE
+Q9: What is the percentage increase in number of movies made between 2006 and 2016?  DONE
 Q10: Find the most common actor in all the movies? ("Actors" column has multiple actors names - 
-    find a way to search for the most common actor in all the movies).
+    find a way to search for the most common actor in all the movies). FIX 
 Q11: How many unique genres are there in the dataset?  ("Genre" column has multiple genres per movie -
-    find a way to identify them individually).
+    find a way to identify them individually). DONE
 Q12: Do a correlation of the numerical features, what insights can you deduce? Mention at least 5 insights.
     And what advice can you give directors to produce better movies?
+    - top 5 movies earning the most revenue: who were the actors, directors and what were the genres
+    - star power + director an indicator of success: https://journals.sagepub.com/doi/full/10.1177/0276237416628904
+    - no. of votes representing audience engagement as an indicator of success: https://www.linkedin.com/advice/1/how-do-you-measure-films-success-skills-film-production#:~:text=Another%20way%20to%20measure%20a,its%20cultural%20and%20social%20relevance.
+    - normal distribution for ratings per genre in last 3 years: https://www.freecodecamp.org/news/whose-reviews-should-you-trust-imdb-rotten-tomatoes-metacritic-or-fandango-7d1010c6cf19/
+    - "the metascore is a weighted average of many reviews coming from reputed critics" - does it correlate with revenue generated? https://www.freecodecamp.org/news/whose-reviews-should-you-trust-imdb-rotten-tomatoes-metacritic-or-fandango-7d1010c6cf19/
 Q13: Once you have completed the Quiz questions, create a GitHub repository and upload a single python file 
     called "css4p01.py" to it. Share the lurl ink for the your python file below. The code must show all 
     the code used to load, analyse and clean the data, as well how you answered the Quiz questions. 
@@ -230,8 +235,6 @@ print(f"A11: the number of unique movie genres was: {num_genres}")
 """
 max eearning movie: actor, director, genre
 change in genres earning the most per year + most popular genre per year
-change in directors in movies earning the most per year
-change in actors in movies earnin ghte most per year
 which movie was rated highest: actor, director, genre
 
 = most popular genre now, most popular actor, most popular director
