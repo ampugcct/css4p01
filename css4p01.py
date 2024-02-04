@@ -269,3 +269,104 @@ print("""\nAdvice for directors to produce better movies:
 3. Make a high quality movie.  The public clearly appreciate this as they tend to concur with the movie critics in their Ratings.
 4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.""")
 
+"""
+runfile('D:/css2024/css_2024_project_imdb/css4p01.py', wdir='D:/css2024/css_2024_project_imdb')
+
+      Rank                    Title  ... Revenue (Millions) Metascore
+0       1  Guardians of the Galaxy  ...             333.13      76.0
+1       2               Prometheus  ...             126.46      65.0
+2       3                    Split  ...             138.12      62.0
+3       4                     Sing  ...             270.32      59.0
+4       5            Suicide Squad  ...             325.02      40.0
+..    ...                      ...  ...                ...       ...
+995   996     Secret in Their Eyes  ...                NaN      45.0
+996   997          Hostel: Part II  ...              17.54      46.0
+997   998   Step Up 2: The Streets  ...              58.01      50.0
+998   999             Search Party  ...                NaN      22.0
+999  1000               Nine Lives  ...              19.64      11.0
+
+[1000 rows x 12 columns]
+
+Headers original:
+ ['Rank', 'Title', 'Genre', 'Description', 'Director', 'Actors', 'Year', 'Runtime (Minutes)', 'Rating', 'Votes', 'Revenue (Millions)', 'Metascore']
+
+Headers after rename:
+ ['Rank', 'Title', 'Genre', 'Description', 'Director', 'Actors', 'Year', 'Runtime', 'Rating', 'Votes', 'Revenue_millions', 'Metascore']
+
+original data types:
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1000 entries, 0 to 999
+Data columns (total 12 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   Rank              1000 non-null   int64  
+ 1   Title             1000 non-null   object 
+ 2   Genre             1000 non-null   object 
+ 3   Description       1000 non-null   object 
+ 4   Director          1000 non-null   object 
+ 5   Actors            1000 non-null   object 
+ 6   Year              1000 non-null   int64  
+ 7   Runtime           1000 non-null   int64  
+ 8   Rating            1000 non-null   float64
+ 9   Votes             1000 non-null   int64  
+ 10  Revenue_millions  872 non-null    float64
+ 11  Metascore         936 non-null    float64
+dtypes: float64(3), int64(4), object(5)
+memory usage: 93.9+ KB
+
+ None 
+
+
+after converting Year and Runtime fields to datetime:
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1000 entries, 0 to 999
+Data columns (total 12 columns):
+ #   Column            Non-Null Count  Dtype          
+---  ------            --------------  -----          
+ 0   Rank              1000 non-null   int64          
+ 1   Title             1000 non-null   object         
+ 2   Genre             1000 non-null   object         
+ 3   Description       1000 non-null   object         
+ 4   Director          1000 non-null   object         
+ 5   Actors            1000 non-null   object         
+ 6   Year              1000 non-null   datetime64[ns] 
+ 7   Runtime           1000 non-null   timedelta64[ns]
+ 8   Rating            1000 non-null   float64        
+ 9   Votes             1000 non-null   int64          
+ 10  Revenue_millions  872 non-null    float64        
+ 11  Metascore         936 non-null    float64        
+dtypes: datetime64[ns](1), float64(3), int64(2), object(5), timedelta64[ns](1)
+memory usage: 93.9+ KB
+None
+
+A1: the highest rated movie is The Dark Knight (Action,Crime,Drama)
+A2: average movie revenue (Millions): US$ 82.96
+A3: average movie revenue (Millions) 2015/01/01 to 2017/01/01: US$ 63.1
+A4: number of movies released in 2016: 297
+A5: number of movies directed by Christopher Nolan: 5
+A6: number of movies with a rating of >=8.0: 78
+A7: median rating of movies directed by Christopher Nolan: 8.1
+A8: the year with the highest average movie rating: 2016
+A9: the percentage increase in number of movies made between 2006 and 2016: 2.53%
+A10: the most common actor in all the movies was: 0    Christian Bale
+Name: Actors, dtype: object
+A11: the number of unique movie genres was: 20
+A12: please refer to the Profile Report that has opened in your browser.  
+      
+Five insights derived from the Profile Report below:
+1. Rating is highly overall correlated [positively] with Votes: there is usually more audience engagement when the movie is a success
+2. Metascore is highly overall correlated [positively] with Rating: the public and the critics tend to be in agreement in terms of rating
+3. Revenue (Millions) is highly overall correlated [positively] with Votes: the more audience engagement there is with a movie, the more revenue it tends to have generated
+4. Year is highly overall correlated [negatively] with Votes: the year did not impact how many votes were received
+5. The movies that generated the most Revenue (millions) (+R600 million) were +120 Runtime (minutes)
+
+Advice for directors to produce better movies:
+1. Have a + 120 Runtime (minutes) as people want to feel as though they got their money's worth.
+2. Feature a popular star, such as Christian Bale. The highest rated movie is The Dark Knight and he was the most common actor in all movies over the period.
+3. Make a high quality movie.  The public clearly appreciate this as they tend to concur with the movie critics in their Ratings.
+4. The most popular genre combination was Action-Drama-Crime so creating a movie with these elements is likely to draw the crowds.
+
+"""
+
